@@ -9,6 +9,6 @@ def multiplicar (a, b):
 
 def dividir (a, b):
     if b == 0:
-        raise ValueError("No se puede dividir para cero")
+        return "Error"
     return a / b
     

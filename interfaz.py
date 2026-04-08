@@ -10,13 +10,16 @@ def click(valor):
     global expresion, resultado_mostrado
 
     if resultado_mostrado:
-        # Si acabamos de mostrar un resultado y presionan un número
-        expresion = ""           # limpiar pantalla
-        resultado_mostrado = False
+        if valor in ["+", "-", "*", "/"]:
+            # Continuar operación con el resultado
+            resultado_mostrado = False
+        else:
+            # Empezar nueva operación
+            expresion = ""
+            resultado_mostrado = False
 
     expresion += str(valor)
     pantalla_var.set(expresion)
-
 # Función para limpiar la pantalla y la expresión
 def limpiar():
     global expresion
@@ -116,7 +119,7 @@ def crear_boton(texto, fila, col):
         ventana,
         text=texto,
         command=cmd,
-        font=("Segoe UI", 14),
+        font=("Aptos", 14),
         bd=1,
         bg=color,
         fg=fg
